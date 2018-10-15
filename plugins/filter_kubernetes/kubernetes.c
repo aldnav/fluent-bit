@@ -142,6 +142,11 @@ static int merge_log_handler(msgpack_object o,
     ctx->unesc_buf_len = unesc_len;
 
     ret = -1;
+    flb_debug("---***---");
+    flb_debug("%s", parser->name);
+    flb_debug("%s", parser->p_regex);
+    flb_debug("%s", ctx->unesc_buf);
+    flb_debug("---***---");
     if (parser) {
         ret = flb_parser_do(parser, ctx->unesc_buf, unesc_len,
                             out_buf, out_size, log_time);
